@@ -43,21 +43,6 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         super.init(coder: aDecoder)
     }
     
-    @IBAction func addItem() {
-        
-        let newRowIndex = items.count
-        
-        let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = false
-        items.append(item)
-        
-        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -136,6 +121,14 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
     
     func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+        let newRowIndex = items.count
+        items.append(item)
+        
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
