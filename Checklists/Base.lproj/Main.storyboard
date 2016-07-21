@@ -69,9 +69,10 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6RL-G4-n0B">
                                                     <rect key="frame" x="8" y="8" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="Xgs-0a-f2s" eventType="editingDidEndOnExit" id="Ue7-m1-DbI"/>
+                                                        <outlet property="delegate" destination="Xgs-0a-f2s" id="uax-Uj-Yd5"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -91,13 +92,14 @@
                                 <action selector="cancel" destination="Xgs-0a-f2s" id="7fG-av-2lz"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="LYs-Za-RbZ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="LYs-Za-RbZ">
                             <connections>
                                 <action selector="done" destination="Xgs-0a-f2s" id="woQ-0K-HVL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="LYs-Za-RbZ" id="w5F-jY-jdR"/>
                         <outlet property="textField" destination="6RL-G4-n0B" id="zW7-ie-dRc"/>
                     </connections>
                 </tableViewController>
