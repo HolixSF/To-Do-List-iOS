@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Checklists-->
+        <!--Name of Checklists-->
         <scene sceneID="8ob-HH-vql">
             <objects>
                 <tableViewController id="YZf-mK-V8N" customClass="ChecklistViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="YZf-mK-V8N" id="hRC-lY-jtk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklists" id="CbY-3J-O6T">
+                    <navigationItem key="navigationItem" title="Name of Checklists" id="CbY-3J-O6T">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g5c-jl-MBT">
                             <connections>
                                 <segue destination="yik-SM-duo" kind="presentation" identifier="AddItem" id="Jir-M5-8yO"/>
@@ -116,7 +116,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yzf-z2-3K1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2555" y="295"/>
+            <point key="canvasLocation" x="2459" y="295"/>
+        </scene>
+        <!--Checklists-->
+        <scene sceneID="6fh-wB-UAd">
+            <objects>
+                <tableViewController id="3Wu-iF-QxC" customClass="AllListsViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eXQ-Ce-Wih">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="3Wu-iF-QxC" id="2DW-fe-sc8"/>
+                            <outlet property="delegate" destination="3Wu-iF-QxC" id="yqr-1O-uff"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Checklists" id="sMc-3g-zjX"/>
+                    <connections>
+                        <segue destination="YZf-mK-V8N" kind="show" identifier="ShowChecklist" id="HSq-X6-PEv"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YtE-7D-4Tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tC5-ZS-6ad">
@@ -129,12 +151,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YZf-mK-V8N" kind="relationship" relationship="rootViewController" id="Evn-0b-B4M"/>
+                        <segue destination="3Wu-iF-QxC" kind="relationship" relationship="rootViewController" id="bGb-56-O9I"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Cz-Ca-0LK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="172" y="295"/>
+            <point key="canvasLocation" x="-480" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kG0-pU-3ka">
@@ -152,10 +174,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8m-Xa-Luu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1743" y="295"/>
+            <point key="canvasLocation" x="1723" y="295"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1HV-0J-BQy"/>
+        <segue reference="Jir-M5-8yO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,8 +9,8 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
-    
-    var items: [ChecklistItem]  
+
+    var items: [ChecklistItem]
     
     required init?(coder aDecoder: NSCoder) {
         items = [ChecklistItem]()
