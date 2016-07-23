@@ -118,6 +118,83 @@
             </objects>
             <point key="canvasLocation" x="2459" y="295"/>
         </scene>
+        <!--Add Checklist-->
+        <scene sceneID="kEP-fZ-iMm">
+            <objects>
+                <tableViewController id="dGM-dx-MhE" customClass="ListDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Vww-F4-Tbu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="k8v-th-dhc">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="v0y-xY-Tu9">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v0y-xY-Tu9" id="ass-OL-R2Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-hp-eHP">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="dGM-dx-MhE" eventType="editingDidEndOnExit" id="iQE-j8-nXz"/>
+                                                        <outlet property="delegate" destination="dGM-dx-MhE" id="JeD-vu-Q7v"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="dGM-dx-MhE" id="whB-HZ-Y7H"/>
+                            <outlet property="delegate" destination="dGM-dx-MhE" id="J4y-bJ-CJm"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Checklist" id="Xxq-fZ-1XY">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="JPH-xk-iLq">
+                            <connections>
+                                <action selector="cancel" destination="dGM-dx-MhE" id="Sa8-4B-DIc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Done" id="YRc-Wb-P9d">
+                            <connections>
+                                <action selector="done" destination="dGM-dx-MhE" id="5Az-KN-TeY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="doneBarbutton" destination="YRc-Wb-P9d" id="UB3-jx-MYI"/>
+                        <outlet property="textField" destination="VbZ-hp-eHP" id="Z6s-rL-ier"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcF-c6-S8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2459" y="1075"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7RS-BC-1TC">
+            <objects>
+                <navigationController id="QRf-1J-A2m" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xTV-bb-6Lk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dGM-dx-MhE" kind="relationship" relationship="rootViewController" id="dcH-Z0-3BR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8w6-V0-ywS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1723" y="1075"/>
+        </scene>
         <!--Checklists-->
         <scene sceneID="6fh-wB-UAd">
             <objects>
@@ -131,7 +208,13 @@
                             <outlet property="delegate" destination="3Wu-iF-QxC" id="yqr-1O-uff"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklists" id="sMc-3g-zjX"/>
+                    <navigationItem key="navigationItem" title="Checklists" id="sMc-3g-zjX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pgy-8V-qdZ">
+                            <connections>
+                                <segue destination="QRf-1J-A2m" kind="presentation" identifier="AddChecklist" id="oUo-dX-eAw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="YZf-mK-V8N" kind="show" identifier="ShowChecklist" id="HSq-X6-PEv"/>
                     </connections>
