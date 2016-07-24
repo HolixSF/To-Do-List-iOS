@@ -73,11 +73,11 @@
 				FA8BEDBF1D3F09FF00FD0FBE /* ItemDetailViewController.swift */,
 				FAFD55061D42BFAC0045924E /* Checklist.swift */,
 				FA24A75A1D3DB406006804B4 /* ChecklistItem.swift */,
+				FAFD550A1D44605D0045924E /* DataModel.swift */,
 				FA24A74C1D3D4D6A006804B4 /* Main.storyboard */,
 				FA24A74F1D3D4D6A006804B4 /* Assets.xcassets */,
 				FA24A7511D3D4D6A006804B4 /* LaunchScreen.storyboard */,
 				FA24A7541D3D4D6A006804B4 /* Info.plist */,
-				FAFD550A1D44605D0045924E /* DataModel.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
