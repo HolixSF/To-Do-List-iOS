@@ -6,14 +6,20 @@
 //  Copyright © 2016 Lu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ChecklistItem: NSObject, NSCoding {
     
     var text = ""
     var checked = false
     
-    override init() {
+    convenience init(text: String) {
+        self.init(text: text, checked: false)
+    }
+    
+    init(text: String, checked: Bool) {
+        self.text = text
+        self.checked = checked
         super.init()
     }
     
