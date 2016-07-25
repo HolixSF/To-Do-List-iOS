@@ -49,4 +49,14 @@ class IconPickerViewController: UITableViewController {
             delegate.iconPicker(self, didPickIcon: iconName)
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.addBackground()
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = .clearColor()
+        cell.textLabel?.backgroundColor = .clearColor()
+    }
 }

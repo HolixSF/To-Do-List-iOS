@@ -21,6 +21,15 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.addBackground()
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return checklist.items.count
@@ -83,6 +92,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         if item.checked {
             label.text = "✔︎"
+            label.textColor = view.tintColor
         } else {
             label.text = ""
         }
@@ -99,6 +109,16 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    func addItemAlert(item: ChecklistItem, controller: ItemDetailViewController) {
+        let message = "\(item.text) added to list!"
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler:
+            nil)
+        alert.addAction(action)
+        controller.presentViewController(alert, animated: true, completion: { _ in controller.textField.text! = ""})
+    }
+    
     func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
         let newRowIndex = checklist.items.count
         checklist.items.append(item)
@@ -108,7 +128,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
         
-        dismissViewControllerAnimated(true, completion: nil)
+        addItemAlert(item, controller: controller)
+//        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {
