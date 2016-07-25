@@ -20,6 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = navigationController.viewControllers[0] as! AllListsViewController
         controller.dataModel = dataModel
         
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+//        
+//        let date = NSDate(timeIntervalSinceNow: 10)
+//        let localNotification = UILocalNotification()
+//        localNotification.fireDate = date
+//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+//        localNotification.alertBody = "I am a local notification"
+//        localNotification.soundName = UILocalNotificationDefaultSoundName
+//        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
         return true
     }
 
@@ -49,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func saveData() {
         dataModel.saveChecklists()
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        print("didReceiveLocalNotification \(notification)")
     }
 }
 

@@ -51,6 +51,7 @@ class IconPickerViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.view.addBackground()
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
