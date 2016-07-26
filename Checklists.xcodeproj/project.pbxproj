@@ -79,11 +79,11 @@
 				FA24A75A1D3DB406006804B4 /* ChecklistItem.swift */,
 				FAFD550A1D44605D0045924E /* DataModel.swift */,
 				FA859CF61D4594BA00D7F428 /* IconPickerViewController.swift */,
+				FA859CF81D45C78D00D7F428 /* AddBackground.swift */,
 				FA24A74C1D3D4D6A006804B4 /* Main.storyboard */,
+				FA859CFA1D45CA5E00D7F428 /* Launch Screen.storyboard */,
 				FA24A74F1D3D4D6A006804B4 /* Assets.xcassets */,
 				FA24A7541D3D4D6A006804B4 /* Info.plist */,
-				FA859CF81D45C78D00D7F428 /* AddBackground.swift */,
-				FA859CFA1D45CA5E00D7F428 /* Launch Screen.storyboard */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
