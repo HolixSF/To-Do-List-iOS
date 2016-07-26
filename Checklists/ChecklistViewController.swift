@@ -36,15 +36,25 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChecklistItem", forIndexPath: indexPath)
+        
+        let cell = cellForTableView(tableView)
         
         let item = checklist.items[indexPath.row]
+        cell.accessoryType = .DetailDisclosureButton
         
-        configureTextForCell(cell, withChecklistItem: item)
         configureCheckmarkForCell(cell, withChecklistItem: item)
+        configureTextForCell(cell, withChecklistItem: item)
         
         return cell
+    }
+    
+    func cellForTableView(tableView: UITableView) -> UITableViewCell {
+        let cellIdentifier = "ChecklistItem"
+        if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) {
+            return cell
+        } else {
+            return UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -59,6 +69,12 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            self.performSegueWithIdentifier("EditItem", sender: cell)
+        }
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -87,22 +103,22 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
-        
-        let label = cell.viewWithTag(1001) as! UILabel
-        
         if item.checked {
-            label.text = "✔︎"
-            label.textColor = view.tintColor
+            cell.imageView!.image = UIImage(named: "Checkmark")
         } else {
-            label.text = ""
+            cell.imageView!.image = UIImage(named: "No Icon")
         }
     }
     
     func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
+        cell.textLabel!.text = item.text
         
-        let label = cell.viewWithTag(1000) as! UILabel
-        label.text = item.text
-        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .ShortStyle
+        cell.detailTextLabel!.backgroundColor = .clearColor()
+        let dueDateText = formatter.stringFromDate(item.dueDate)
+        cell.detailTextLabel!.text = "Due: \(dueDateText)"
     }
     
     func itemDetailViewControllerDidCancel(controller: ItemDetailViewController) {
