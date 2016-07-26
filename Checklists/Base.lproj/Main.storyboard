@@ -177,6 +177,28 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yzf-z2-3K1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="6nf-jK-y8B">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="217"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6nf-jK-y8B" id="nxK-1V-Jte">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="217"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3f3-nZ-Tzc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="491183714.68433702">
+                                    <!--2016-07-25 23:55:14 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="3f3-nZ-Tzc" firstAttribute="leading" secondItem="nxK-1V-Jte" secondAttribute="leading" id="PLk-y9-KXV"/>
+                            <constraint firstAttribute="bottom" secondItem="3f3-nZ-Tzc" secondAttribute="bottom" id="rfE-oP-QEd"/>
+                            <constraint firstItem="3f3-nZ-Tzc" firstAttribute="top" secondItem="nxK-1V-Jte" secondAttribute="top" id="uLK-hN-qQh"/>
+                            <constraint firstAttribute="trailing" secondItem="3f3-nZ-Tzc" secondAttribute="trailing" id="ukh-Ar-fN9"/>
+                        </constraints>
+                    </tableViewCellContentView>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="2459" y="295"/>
         </scene>
