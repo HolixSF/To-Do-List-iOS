@@ -102,8 +102,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         
         let label = cell.viewWithTag(1000) as! UILabel
-//        label.text = item.text
-        label.text = "\(item.itemID): \(item.text), \(item.dueDate)"
+        label.text = item.text
+//        label.text = "\(item.itemID): \(item.text), \(item.dueDate)"
         
     }
     
@@ -111,15 +111,15 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    func addItemAlert(item: ChecklistItem, controller: ItemDetailViewController) {
-        let message = "\(item.text) added to list!"
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler:
-            {_ in controller.textField.text! = ""})
-        alert.addAction(action)
-        controller.presentViewController(alert, animated: true, completion: nil)
-    }
+//    
+//    func addItemAlert(item: ChecklistItem, controller: ItemDetailViewController) {
+//        let message = "\(item.text) added to list!"
+//        let alert = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
+//        let action = UIAlertAction(title: "OK", style: .Default, handler:
+//            {_ in controller.textField.text! = ""})
+//        alert.addAction(action)
+//        controller.presentViewController(alert, animated: true, completion: nil)
+//    }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
         let newRowIndex = checklist.items.count
@@ -130,8 +130,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
         
-        addItemAlert(item, controller: controller)
-//        dismissViewControllerAnimated(true, completion: nil)
+//        addItemAlert(item, controller: controller)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {

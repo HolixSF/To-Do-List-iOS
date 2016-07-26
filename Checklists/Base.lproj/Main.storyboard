@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U4d-sB-WCe" id="Og6-l9-Acw">
-                                    <rect key="frame" x="0.0" y="0.0" width="533" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="533" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56D-7K-Sl7">
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wpd-Dx-vFG" id="LYV-xb-vZt">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6RL-G4-n0B">
@@ -89,7 +89,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="51N-MX-Rxn"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="Xgs-0a-f2s" eventType="editingDidEndOnExit" id="Ue7-m1-DbI"/>
                                                         <outlet property="delegate" destination="Xgs-0a-f2s" id="uax-Uj-Yd5"/>
@@ -163,13 +163,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Item" id="lqn-Ik-8lu">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="LYs-Za-RbZ">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="7of-6H-myH">
                             <connections>
-                                <action selector="cancel" destination="Xgs-0a-f2s" id="4jm-Tr-k4f"/>
+                                <action selector="cancel" destination="Xgs-0a-f2s" id="eVn-q3-YIT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="LYs-Za-RbZ">
+                            <connections>
+                                <action selector="done" destination="Xgs-0a-f2s" id="hIR-Th-3B2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="3f3-nZ-Tzc" id="P1E-W3-KJk"/>
+                        <outlet property="datePickerCell" destination="6nf-jK-y8B" id="5kk-A3-fXA"/>
                         <outlet property="doneBarButton" destination="LYs-Za-RbZ" id="w5F-jY-jdR"/>
                         <outlet property="dueDateLabel" destination="kJf-2L-1ht" id="dzw-Wa-gSN"/>
                         <outlet property="shouldRemindSwitch" destination="eoq-eN-5IL" id="7b1-6H-2y2"/>
@@ -181,7 +188,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="217"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6nf-jK-y8B" id="nxK-1V-Jte">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="217"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="216.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3f3-nZ-Tzc">
@@ -189,6 +196,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="491183714.68433702">
                                     <!--2016-07-25 23:55:14 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Xgs-0a-f2s" eventType="valueChanged" id="fKW-KI-t2w"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <constraints>
@@ -217,7 +227,7 @@
                                         <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v0y-xY-Tu9" id="ass-OL-R2Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-hp-eHP">
@@ -248,7 +258,7 @@
                                         <rect key="frame" x="0.0" y="179" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QcN-ZK-biN" id="Qit-ca-eoj">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o4H-VZ-s4C">
@@ -319,7 +329,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Pi-bJ-mJW" id="cMw-IO-9w7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
