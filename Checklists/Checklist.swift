@@ -15,7 +15,7 @@ class Checklist: NSObject, NSCoding {
     var iconName: String
     
     convenience init(name: String) {
-        self.init(name: name, iconName: "No Icon")
+        self.init(name: name, iconName: "Appointments")
     }
     
     init(name: String, iconName: String) {

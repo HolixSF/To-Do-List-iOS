@@ -38,7 +38,7 @@ class DataModel {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let firstTime = userDefaults.boolForKey("FirstTime")
         if firstTime {
-            let checklist = Checklist(name: "List")
+            let checklist = Checklist(name: "To-Do")
             lists.append(checklist)
             indexOfSelectedChecklist = 0
             userDefaults.setBool(false, forKey: "FirstTime")
