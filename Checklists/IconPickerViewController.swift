@@ -26,7 +26,8 @@ class IconPickerViewController: UITableViewController {
         "Groceries",
         "Inbox",
         "Photos",
-        "Trips"
+        "Trips",
+        "Repairs"
     ]
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

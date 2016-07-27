@@ -108,7 +108,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
-        self.view.addBackground()
+//        self.view.addBackground()
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     

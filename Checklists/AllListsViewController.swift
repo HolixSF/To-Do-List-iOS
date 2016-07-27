@@ -132,7 +132,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        self.view.addBackground()
+//        self.view.addBackground()
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     

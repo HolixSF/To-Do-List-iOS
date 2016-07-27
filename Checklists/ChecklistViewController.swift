@@ -23,7 +23,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.addBackground()
+//        self.view.addBackground()
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
